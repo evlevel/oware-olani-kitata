@@ -8,11 +8,6 @@ public class Player
 		this.id = id;
 		this.playersStorehouse = new Storehouse();
 	}
-	public static void main(String[] args)
-	{
-		// TODO Auto-generated method stub
-
-	}
 	
 	public int getId(){
 		return this.id;
