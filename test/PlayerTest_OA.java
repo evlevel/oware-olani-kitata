@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PlayerTest {
+public class PlayerTest_OA {
 	Player player1;
 	Player player2;
 	@Before

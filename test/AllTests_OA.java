@@ -4,6 +4,6 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ BoardTest.class, MoveTest.class, PitTest.class })
-public class AllTests {
+public class AllTests_OA {
 
 }
