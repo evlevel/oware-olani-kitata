@@ -11,7 +11,7 @@ public class Testing {
 			
 		}
 		@Test
-		public void testManalAndWenjingAddSeeds()
+		public void testWenjingManalAndAddSeeds()
 		{
 			 Storehouse  house = new  Storehouse ();
 			 assertEquals("test initial seeds",0,house.getNumSeeds());
