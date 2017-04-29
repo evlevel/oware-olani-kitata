@@ -18,6 +18,7 @@ public class TestStoreHouse
 		
 		house.addCapturedSeeds(5);
 		assertEquals("capture 5 seeds", 5, house.getNumSeeds());
+		// foo
 		
 	}
 
