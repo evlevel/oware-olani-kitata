@@ -1,7 +1,7 @@
 
 public class Storehouse
 {
-	private int numSeeds;
+	private int numSeeds=0;
 
 	public void addCapturedSeeds(int n){
 		numSeeds += n;
