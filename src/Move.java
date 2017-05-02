@@ -17,16 +17,6 @@ public class Move
 		}
 		return activePit;
 	}
-	
-	public static Pit seedNextPit(Pit p){
-		Pit nextPit = p.getNext();
-		nextPit.addSeed();
-		return nextPit;
-	}
-	
-	public static boolean isMoveValid(Pit p){
-		return false;
-	}
 
 	public static boolean canActivePitSowOpponentsPit(Pit pit){
 		int pitNumber = pit.getPitNumber();

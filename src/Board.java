@@ -18,12 +18,7 @@ public class Board
 	public Pit getPit(int pitnum)
 	{
 		return allPits[pitnum];
-	}
-	
-	public void setPit(int pitNumber, Pit p){
-		allPits[pitNumber]=p;
-	}
-	
+	}	
 	
 	private void createPits(){
 		for(int i =0; i<12; i++){
