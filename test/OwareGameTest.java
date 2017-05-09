@@ -45,7 +45,42 @@ public class OwareGameTest {
 		OwareGame theGame = new OwareGame(); 
 		assertEquals(false, theGame.isGameOver());
 	}
-
+	
+	@Test
+	public void testIsGameOver_GameIsOverWhenTied() {
+		OwareGame theGame = new OwareGame(); 
+		
+		Player player1 = theGame.getActivePlayer();
+		player1.addSeedsToStoreHouse(24);
+		Player player2 = theGame.switchPlayer();
+		player2.addSeedsToStoreHouse(24);
+		theGame.displayFinalScores();
+		assertEquals(true, theGame.isGameOver());
+	}
+	
+	@Test
+	public void testIsGameOver_TrueWhenPlayer1HasMoreThan24() {
+		OwareGame theGame = new OwareGame(); 
+		
+		Player player1 = theGame.getActivePlayer();
+		player1.addSeedsToStoreHouse(25);
+		Player player2 = theGame.switchPlayer();
+		player2.addSeedsToStoreHouse(23);
+		theGame.displayFinalScores();
+		assertEquals(true, theGame.isGameOver());
+	}
+	
+	@Test
+	public void testIsGameOver_TrueWhenPlayer2HasMoreThan24() {
+		OwareGame theGame = new OwareGame(); 
+		
+		Player player1 = theGame.getActivePlayer();
+		player1.addSeedsToStoreHouse(23);
+		Player player2 = theGame.switchPlayer();
+		player2.addSeedsToStoreHouse(25);
+		theGame.displayFinalScores();
+		assertEquals(true, theGame.isGameOver());
+	}
 	@Test
 	public void testSwitchPlayer() {
 		OwareGame theGame = new OwareGame(); 
