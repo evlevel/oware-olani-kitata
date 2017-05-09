@@ -2,7 +2,8 @@
 public class Move
 {
 	
-
+// a comment for testing...
+	
 	public static Pit makeMove(Pit p){
 		int startingPointPitNumber = p.getPitNumber();
 		int playingNumberOfSeeds = p.getNumSeeds();
