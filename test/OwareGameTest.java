@@ -39,11 +39,6 @@ public class OwareGameTest {
 		theGame.getBoard().showBoard();
 	}
 
-	@Test
-	public void testValidPitNumbers() {
-		OwareGame theGame = new OwareGame();  
-		assertEquals("0 to 5", theGame.validPitNumbers(theGame.getActivePlayer()));
-	}
 
 	@Test
 	public void testIsGameOver() {
@@ -57,8 +52,22 @@ public class OwareGameTest {
 		Player newPlayer = theGame.switchPlayer();
 		assertEquals(2, theGame.getActivePlayer().getId());
 		assertEquals(newPlayer, theGame.getActivePlayer());
+		
+		Player newPlayer1 = theGame.switchPlayer();
+		assertEquals(1, theGame.getActivePlayer().getId());
+		assertEquals(newPlayer1, theGame.getActivePlayer());
+		
+	}
+	
+	@Test
+	public void testValidPitNumbers() {
+		OwareGame theGame = new OwareGame();  
+		assertEquals("0 to 5", theGame.validPitNumbers(theGame.getActivePlayer()));
+		theGame.switchPlayer();
+		assertEquals("6 to 11", theGame.validPitNumbers(theGame.getActivePlayer()));
 	}
 
+	
 	@Test
 	public void testDisplayCurrentScores() {
 		OwareGame theGame = new OwareGame(); 
