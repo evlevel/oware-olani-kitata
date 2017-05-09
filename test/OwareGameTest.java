@@ -39,26 +39,70 @@ public class OwareGameTest {
 		theGame.getBoard().showBoard();
 	}
 
-	@Test
-	public void testValidPitNumbers() {
-		OwareGame theGame = new OwareGame();  
-		assertEquals("0 to 5", theGame.validPitNumbers(theGame.getActivePlayer()));
-	}
 
 	@Test
 	public void testIsGameOver() {
 		OwareGame theGame = new OwareGame(); 
 		assertEquals(false, theGame.isGameOver());
 	}
-
+	
+	@Test
+	public void testIsGameOver_GameIsOverWhenTied() {
+		OwareGame theGame = new OwareGame(); 
+		
+		Player player1 = theGame.getActivePlayer();
+		player1.addSeedsToStoreHouse(24);
+		Player player2 = theGame.switchPlayer();
+		player2.addSeedsToStoreHouse(24);
+		theGame.displayFinalScores();
+		assertEquals(true, theGame.isGameOver());
+	}
+	
+	@Test
+	public void testIsGameOver_TrueWhenPlayer1HasMoreThan24() {
+		OwareGame theGame = new OwareGame(); 
+		
+		Player player1 = theGame.getActivePlayer();
+		player1.addSeedsToStoreHouse(25);
+		Player player2 = theGame.switchPlayer();
+		player2.addSeedsToStoreHouse(23);
+		theGame.displayFinalScores();
+		assertEquals(true, theGame.isGameOver());
+	}
+	
+	@Test
+	public void testIsGameOver_TrueWhenPlayer2HasMoreThan24() {
+		OwareGame theGame = new OwareGame(); 
+		
+		Player player1 = theGame.getActivePlayer();
+		player1.addSeedsToStoreHouse(23);
+		Player player2 = theGame.switchPlayer();
+		player2.addSeedsToStoreHouse(25);
+		theGame.displayFinalScores();
+		assertEquals(true, theGame.isGameOver());
+	}
 	@Test
 	public void testSwitchPlayer() {
 		OwareGame theGame = new OwareGame(); 
 		Player newPlayer = theGame.switchPlayer();
 		assertEquals(2, theGame.getActivePlayer().getId());
 		assertEquals(newPlayer, theGame.getActivePlayer());
+		
+		Player newPlayer1 = theGame.switchPlayer();
+		assertEquals(1, theGame.getActivePlayer().getId());
+		assertEquals(newPlayer1, theGame.getActivePlayer());
+		
+	}
+	
+	@Test
+	public void testValidPitNumbers() {
+		OwareGame theGame = new OwareGame();  
+		assertEquals("0 to 5", theGame.validPitNumbers(theGame.getActivePlayer()));
+		theGame.switchPlayer();
+		assertEquals("6 to 11", theGame.validPitNumbers(theGame.getActivePlayer()));
 	}
 
+	
 	@Test
 	public void testDisplayCurrentScores() {
 		OwareGame theGame = new OwareGame(); 
