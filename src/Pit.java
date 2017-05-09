@@ -7,7 +7,6 @@ public class Pit
 	private Pit next;
 	private Pit previous;
 	
-	//private Pit currentPit;
 
 	public Pit(){
 		numSeeds = 4;
@@ -57,11 +56,7 @@ public class Pit
 	public int getPitNumber(){
 		return pitNumber;
 	}
-	
-	public int getOwnerPlayerID(){
-		return this.ownerPlayerID;
-	}
-	
+
 	
 
 }
