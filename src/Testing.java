@@ -20,7 +20,7 @@ public class Testing {
 
 		}
 			
-		
+		/*@Test
 		public void testWenjingAndManalAndAddSeeds()
 		{
 			 Storehouse  house = new  Storehouse ();
@@ -29,7 +29,13 @@ public class Testing {
 			 house.addCapturedSeeds(5);
 			 assertEquals("Capture 4 seeds", 4, house.getNumSeeds());
 
-		}
+		}*/
 
-	
+		@Test
+		public void WenjingAndManaladdCapturedSeeds(){
+			Storehouse storehouse= new Storehouse();
+			storehouse.addCapturedSeeds(4);
+			assertEquals(storehouse.getNumSeeds(),4);
+		}
+		
 }
