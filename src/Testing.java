@@ -4,7 +4,6 @@ import org.junit.Test;
 
 public class Testing {
 
-	public class AllTests {
 		@Test
 		public void setUp()throws Exception
 		{
@@ -21,5 +20,16 @@ public class Testing {
 
 		}
 			
+		
+		public void testWenjingAndManalAndAddSeeds()
+		{
+			 Storehouse  house = new  Storehouse ();
+			 assertEquals("test initial seeds",1,house.getNumSeeds());
+			 
+			 house.addCapturedSeeds(5);
+			 assertEquals("Capture 4 seeds", 4, house.getNumSeeds());
+
 		}
+
+	
 }
