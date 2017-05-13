@@ -14,9 +14,19 @@ public class OwareGame {
 	}
 	
 	public Player getActivePlayer(){
-		return activePlayer;
+		return this.activePlayer;
+	}
+	public Player setActivePlayer(Player activePlayer){
+		this.activePlayer = activePlayer;
 	}
 	
+	public Player getActivePit(){
+		return this.activePit;
+	}
+	public Player setActivePit(Pit activePit){
+		this.activePit = activePit;
+	}
+
 	public Board getBoard(){
 		return this.board;
 	}
@@ -26,25 +36,23 @@ public class OwareGame {
 		String validPitNumbersForCurrentPlayer = validPitNumbers(activePlayer);
 		System.out.println("Please choose your pit");
 		int pitNumber=-1;
-		Pit playersChoice=null;
 		while(validChoiceMade==false){
 			try {
 				pitNumber=scan.nextInt();
 				Pit pitSelected = board.getPit(pitNumber);
 				if ((Move.isThisPitPlayers(activePlayer.getId(), pitNumber))&&(Move.canActivePitSowOpponentsPit(pitSelected))){
+					this.setActivePit(pitSelected);
 					validChoiceMade=true;
-					playersChoice=board.getPit(pitNumber);
 				}else{
 					displayMoveWasInvalid(pitNumber, validPitNumbersForCurrentPlayer);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
-			System.out.println("You have entered a value that is not numeric please try again.");
-			System.out.println("Your valid entries are from " + validPitNumbersForCurrentPlayer);
-			scan.nextLine();
+				System.out.println("You have entered a value that is not numeric please try again." +
+						   "\nYour valid entries are from " + validPitNumbersForCurrentPlayer);
 			}
 		}
-		return playersChoice;
+		return this.getActivePit;
 	}
 	
 	public String validPitNumbers(Player activePlayer){
