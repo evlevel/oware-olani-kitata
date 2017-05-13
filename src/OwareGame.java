@@ -16,14 +16,14 @@ public class OwareGame {
 	public Player getActivePlayer(){
 		return this.activePlayer;
 	}
-	public Player setActivePlayer(Player activePlayer){
+	public void setActivePlayer(Player activePlayer){
 		this.activePlayer = activePlayer;
 	}
 	
-	public Player getActivePit(){
+	public Pit getActivePit(){
 		return this.activePit;
 	}
-	public Player setActivePit(Pit activePit){
+	public void setActivePit(Pit activePit) {
 		this.activePit = activePit;
 	}
 
@@ -31,7 +31,7 @@ public class OwareGame {
 		return this.board;
 	}
 	
-	public Pit askPlayerPitChoiceForMove(Player activePlayer, Scanner scan){
+	public void askPlayerPitChoiceForMove(Player activePlayer, Scanner scan){
 		boolean validChoiceMade=false;
 		String validPitNumbersForCurrentPlayer = validPitNumbers(activePlayer);
 		System.out.println("Please choose your pit");
@@ -52,7 +52,6 @@ public class OwareGame {
 						   "\nYour valid entries are from " + validPitNumbersForCurrentPlayer);
 			}
 		}
-		return this.getActivePit;
 	}
 	
 	public String validPitNumbers(Player activePlayer){
@@ -77,13 +76,11 @@ public class OwareGame {
 		return answer;
 	}
 
-	public Player switchPlayer(){
+	public void switchPlayer(){
 		if(activePlayer.getId()==1)
 			activePlayer = player2;
 		else if (activePlayer.getId()==2)
 			activePlayer = player1;
-		
-		return activePlayer;
 	}
 
 	public void displayCurrentScores(){
