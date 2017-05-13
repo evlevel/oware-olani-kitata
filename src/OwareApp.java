@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class OwareApp {
 
-	private static Player activePlayer; 
-	private static Pit activePit;
 	private static Scanner scan = new Scanner(System.in);
 	
 	public static void main(String[] args){
