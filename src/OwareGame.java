@@ -14,37 +14,44 @@ public class OwareGame {
 	}
 	
 	public Player getActivePlayer(){
-		return activePlayer;
+		return this.activePlayer;
+	}
+	public void setActivePlayer(Player activePlayer){
+		this.activePlayer = activePlayer;
 	}
 	
+	public Pit getActivePit(){
+		return this.activePit;
+	}
+	public void setActivePit(Pit activePit) {
+		this.activePit = activePit;
+	}
+
 	public Board getBoard(){
 		return this.board;
 	}
 	
-	public Pit askPlayerPitChoiceForMove(Player activePlayer, Scanner scan){
+	public void askPlayerPitChoiceForMove(Player activePlayer, Scanner scan){
 		boolean validChoiceMade=false;
 		String validPitNumbersForCurrentPlayer = validPitNumbers(activePlayer);
 		System.out.println("Please choose your pit");
 		int pitNumber=-1;
-		Pit playersChoice=null;
 		while(validChoiceMade==false){
 			try {
 				pitNumber=scan.nextInt();
 				Pit pitSelected = board.getPit(pitNumber);
 				if ((Move.isThisPitPlayers(activePlayer.getId(), pitNumber))&&(Move.canActivePitSowOpponentsPit(pitSelected))){
+					this.setActivePit(pitSelected);
 					validChoiceMade=true;
-					playersChoice=board.getPit(pitNumber);
 				}else{
 					displayMoveWasInvalid(pitNumber, validPitNumbersForCurrentPlayer);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
-			System.out.println("You have entered a value that is not numeric please try again.");
-			System.out.println("Your valid entries are from " + validPitNumbersForCurrentPlayer);
-			scan.nextLine();
+				System.out.println("You have entered a value that is not numeric please try again." +
+						   "\nYour valid entries are from " + validPitNumbersForCurrentPlayer);
 			}
 		}
-		return playersChoice;
 	}
 	
 	public String validPitNumbers(Player activePlayer){
@@ -69,13 +76,11 @@ public class OwareGame {
 		return answer;
 	}
 
-	public Player switchPlayer(){
+	public void switchPlayer(){
 		if(activePlayer.getId()==1)
 			activePlayer = player2;
 		else if (activePlayer.getId()==2)
 			activePlayer = player1;
-		
-		return activePlayer;
 	}
 
 	public void displayCurrentScores(){

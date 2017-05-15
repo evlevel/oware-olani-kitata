@@ -52,7 +52,8 @@ public class OwareGameTest {
 		
 		Player player1 = theGame.getActivePlayer();
 		player1.addSeedsToStoreHouse(24);
-		Player player2 = theGame.switchPlayer();
+		theGame.switchPlayer();
+		Player player2 = theGame.getActivePlayer();
 		player2.addSeedsToStoreHouse(24);
 		theGame.displayFinalScores();
 		assertEquals(true, theGame.isGameOver());
@@ -64,7 +65,8 @@ public class OwareGameTest {
 		
 		Player player1 = theGame.getActivePlayer();
 		player1.addSeedsToStoreHouse(25);
-		Player player2 = theGame.switchPlayer();
+		theGame.switchPlayer();
+		Player player2 = theGame.getActivePlayer();
 		player2.addSeedsToStoreHouse(23);
 		theGame.displayFinalScores();
 		assertEquals(true, theGame.isGameOver());
@@ -76,7 +78,8 @@ public class OwareGameTest {
 		
 		Player player1 = theGame.getActivePlayer();
 		player1.addSeedsToStoreHouse(23);
-		Player player2 = theGame.switchPlayer();
+		theGame.switchPlayer();
+		Player player2 = theGame.getActivePlayer();
 		player2.addSeedsToStoreHouse(25);
 		theGame.displayFinalScores();
 		assertEquals(true, theGame.isGameOver());
@@ -84,11 +87,13 @@ public class OwareGameTest {
 	@Test
 	public void testSwitchPlayer() {
 		OwareGame theGame = new OwareGame(); 
-		Player newPlayer = theGame.switchPlayer();
+		theGame.switchPlayer();
+		Player newPlayer= theGame.getActivePlayer();
 		assertEquals(2, theGame.getActivePlayer().getId());
 		assertEquals(newPlayer, theGame.getActivePlayer());
 		
-		Player newPlayer1 = theGame.switchPlayer();
+		theGame.switchPlayer();
+		Player newPlayer1= theGame.getActivePlayer();
 		assertEquals(1, theGame.getActivePlayer().getId());
 		assertEquals(newPlayer1, theGame.getActivePlayer());
 		
